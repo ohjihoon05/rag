@@ -34,7 +34,7 @@ ENABLE_MCP_SERVER=0
 ENABLE_ADMIN_SERVER=0 # Default close admin server
 CONSUMER_NO_BEG=0
 CONSUMER_NO_END=0
-WORKERS=1
+WORKERS=${WS:-1}  # Use WS environment variable if set, otherwise default to 1
 
 MCP_HOST="127.0.0.1"
 MCP_PORT=9382
