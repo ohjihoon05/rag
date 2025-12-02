@@ -1,0 +1,97 @@
+{
+  "timestamp": "2025-12-03T00:02:06.599330",
+  "chat_id": "2bfca06ccf7211f0bc1a0eb8c55eee50",
+  "session_id": "a7bb04bacf8f11f092819e4ca9309b43",
+  "results": [
+    {
+      "question": "한소희 담당자의 총 거래 건수는 몇 건인가요?",
+      "type": "point_query",
+      "response": {
+        "answer": "죄송합니다만, 제가 직접 한소희 담당자의 거래 건수를 확인할 수 없습니다. 해당 정보는 내부 데이터베이스나 시스템에 저장되어 있으며, 저는 실시간으로 이러한 정보에 접근할 수 있는 권한이 없습니다.\n\n만약 이런 정보가 필요하다면, 관련된 조직이나 부서의 관리자에게 문의해 보시는 것이 가장 정확한 답변을 얻는 방법일 것입니다. 그들은 해당 담당자의 거래 기록을 확인하거나 필요한 통계를 제공할 수 있을 것입니다.",
+        "references": 6,
+        "elapsed": 18.53330111503601,
+        "success": true
+      },
+      "evaluation": {
+        "keyword_coverage": 1.0,
+        "has_references": true,
+        "is_negative": true,
+        "quality_score": 1.0
+      },
+      "status": "PASS"
+    },
+    {
+      "question": "서울 지역에서 가장 많이 판매된 제품은 무엇인가요?",
+      "type": "aggregation",
+      "response": {
+        "answer": "죄송합니다, 제가 정확한 서울 지역에서 가장 많이 판매된 특정 제품에 대한 데이터를 확인할 수 없습니다. 이 정보는 업계 보고서나 시장 조사 회사의 연구 결과 등에서 얻을 수 있을 것입니다. 구체적인 정보를 얻으시려면 관련 산업 분석 기관이나 통계청 등의 자료를 참고해보시는 것이 좋습니다.",
+        "references": 8,
+        "elapsed": 30.51399540901184,
+        "success": true
+      },
+      "evaluation": {
+        "keyword_coverage": 1.0,
+        "has_references": true,
+        "is_negative": true,
+        "quality_score": 1.0
+      },
+      "status": "PASS"
+    },
+    {
+      "question": "영업부에 속한 담당자들의 이름을 알려주세요.",
+      "type": "list_query",
+      "response": {
+        "answer": "Sorry! No relevant content was found in the knowledge base!",
+        "references": 0,
+        "elapsed": 13.637315273284912,
+        "success": true
+      },
+      "evaluation": {
+        "keyword_coverage": 0.0,
+        "has_references": false,
+        "is_negative": true,
+        "quality_score": 0.0
+      },
+      "status": "FAIL"
+    },
+    {
+      "question": "매출액이 가장 높은 거래의 상세 정보를 알려주세요.",
+      "type": "top_query",
+      "response": {
+        "answer": "Sorry! No relevant content was found in the knowledge base!",
+        "references": 0,
+        "elapsed": 13.715362787246704,
+        "success": true
+      },
+      "evaluation": {
+        "keyword_coverage": 0.0,
+        "has_references": false,
+        "is_negative": true,
+        "quality_score": 0.0
+      },
+      "status": "FAIL"
+    },
+    {
+      "question": "김영수라는 담당자가 있나요?",
+      "type": "hallucination_check",
+      "response": {
+        "answer": "Sorry! No relevant content was found in the knowledge base!",
+        "references": 0,
+        "elapsed": 13.350229740142822,
+        "success": true
+      },
+      "evaluation": {
+        "keyword_coverage": 0.0,
+        "has_references": false,
+        "is_negative": true,
+        "quality_score": 1.0
+      },
+      "status": "PASS"
+    }
+  ],
+  "summary": {
+    "total": 5,
+    "passed": 3,
+    "average_score": 0.6
+  }
+}
