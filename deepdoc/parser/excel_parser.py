@@ -47,22 +47,19 @@ class RAGFlowExcelParser:
             except Exception as e_csv:
                 raise Exception(f"Failed to parse CSV and convert to Excel Workbook: {e_csv}")
 
+        # Use openpyxl as primary engine (preserves Korean encoding properly)
+        # calamine has encoding issues with Korean text
         try:
+            file_like_object.seek(0)
             return load_workbook(file_like_object, data_only=True)
-        except Exception as e:
-            logging.info(f"openpyxl load error: {e}, try pandas instead")
+        except Exception as e_openpyxl:
+            logging.info(f"openpyxl load error: {e_openpyxl}, try calamine instead")
             try:
                 file_like_object.seek(0)
-                try:
-                    dfs = pd.read_excel(file_like_object, sheet_name=None)
-                    return RAGFlowExcelParser._dataframe_to_workbook(dfs)
-                except Exception as ex:
-                    logging.info(f"pandas with default engine load error: {ex}, try calamine instead")
-                    file_like_object.seek(0)
-                    df = pd.read_excel(file_like_object, engine="calamine")
-                    return RAGFlowExcelParser._dataframe_to_workbook(df)
-            except Exception as e_pandas:
-                raise Exception(f"pandas.read_excel error: {e_pandas}, original openpyxl error: {e}")
+                dfs = pd.read_excel(file_like_object, sheet_name=None, engine="calamine")
+                return RAGFlowExcelParser._dataframe_to_workbook(dfs)
+            except Exception as e_calamine:
+                raise Exception(f"calamine error: {e_calamine}, original openpyxl error: {e_openpyxl}")
 
     @staticmethod
     def _clean_dataframe(df: pd.DataFrame):
@@ -160,7 +157,7 @@ class RAGFlowExcelParser:
         file_like_object = BytesIO(fnm) if not isinstance(fnm, str) else fnm
         try:
             file_like_object.seek(0)
-            df = pd.read_excel(file_like_object)
+            df = pd.read_excel(file_like_object, engine="calamine")
         except Exception as e:
             logging.warning(f"Parse spreadsheet error: {e}, trying to interpret as CSV file")
             file_like_object.seek(0)

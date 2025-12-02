@@ -91,6 +91,11 @@ services:
       - ../history_data_agent:/ragflow/history_data_agent
       - ./service_conf.yaml.template:/ragflow/conf/service_conf.yaml.template
       - ./entrypoint.sh:/ragflow/entrypoint.sh
+      # Custom patches - Excel calamine optimization
+      - ../deepdoc/parser/excel_parser.py:/ragflow/deepdoc/parser/excel_parser.py
+      # Persist pip packages to avoid re-downloading on restart
+      - ragflow-pip-cache:/root/.cache/pip
+      - ragflow-site-packages:/ragflow/.venv/lib/python3.10/site-packages
     env_file: .env
     networks:
       - ragflow
@@ -132,3 +137,7 @@ services:
   #           - driver: nvidia
   #             count: all
   #             capabilities: [gpu]
+
+volumes:
+  ragflow-pip-cache:
+  ragflow-site-packages:

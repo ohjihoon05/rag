@@ -374,7 +374,9 @@ def chat(dialog, messages, stream=True, **kwargs):
 
     retriever = settings.retriever
     questions = [m["content"] for m in messages if m["role"] == "user"][-3:]
-    attachments = kwargs["doc_ids"].split(",") if "doc_ids" in kwargs else []
+    # Fix: Use None instead of [] when no doc_ids to enable full document search
+    # Empty list [] causes doc_id IN [] query which filters out all documents
+    attachments = kwargs["doc_ids"].split(",") if "doc_ids" in kwargs else None
     if "doc_ids" in messages[-1]:
         attachments = messages[-1]["doc_ids"]
 
@@ -425,7 +427,9 @@ def chat(dialog, messages, stream=True, **kwargs):
     kbinfos = {"total": 0, "chunks": [], "doc_aggs": []}
     knowledges = []
 
-    if attachments is not None and "knowledge" in [p["key"] for p in prompt_config["parameters"]]:
+    # Knowledge retrieval: run when 'knowledge' parameter exists in prompt config
+    # Note: attachments=None means search all documents, attachments=[] would filter none
+    if "knowledge" in [p["key"] for p in prompt_config.get("parameters", [])]:
         tenant_ids = list(set([kb.tenant_id for kb in kbs]))
         knowledges = []
         if prompt_config.get("reasoning", False):

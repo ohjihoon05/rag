@@ -1,0 +1,77 @@
+{
+  "parsing_time": 125,
+  "accuracy_tests": [
+    {
+      "question": "한소희 담당자의 총 거래 건수는 몇 건인가요?",
+      "answer": "해당 데이터가 없습니다",
+      "passed": false,
+      "score": 0.0,
+      "description": "담당자별 거래 건수 조회"
+    },
+    {
+      "question": "제품E의 총 판매수량은 얼마인가요?",
+      "answer": "해당 데이터가 없습니다",
+      "passed": false,
+      "score": 0.0,
+      "description": "제품별 판매수량 집계"
+    },
+    {
+      "question": "매출액이 가장 높은 담당자는 누구인가요?",
+      "answer": "해당 데이터가 없습니다",
+      "passed": false,
+      "score": 0.0,
+      "description": "매출 1위 담당자"
+    },
+    {
+      "question": "어떤 부서들이 있나요?",
+      "answer": "해당 데이터가 없습니다",
+      "passed": false,
+      "score": 0.0,
+      "description": "부서 목록"
+    },
+    {
+      "question": "서울 지역의 판매 데이터가 있나요?",
+      "answer": "해당 데이터가 없습니다",
+      "passed": false,
+      "score": 0.0,
+      "description": "지역 데이터 유무"
+    }
+  ],
+  "hallucination_tests": [
+    {
+      "question": "김영수 담당자의 매출 실적은 어떻게 되나요?",
+      "answer": "해당 데이터가 없습니다",
+      "is_hallucination": false,
+      "forbidden_found": [],
+      "description": "존재하지 않는 담당자"
+    },
+    {
+      "question": "제품Z의 판매현황을 알려주세요.",
+      "answer": "해당 데이터가 없습니다",
+      "is_hallucination": false,
+      "forbidden_found": [],
+      "description": "존재하지 않는 제품"
+    },
+    {
+      "question": "제주도 지역의 매출은 얼마인가요?",
+      "answer": "해당 데이터가 없습니다",
+      "is_hallucination": false,
+      "forbidden_found": [],
+      "description": "존재하지 않는 지역"
+    },
+    {
+      "question": "2024년 매출 데이터를 보여주세요.",
+      "answer": "해당 데이터가 없습니다",
+      "is_hallucination": false,
+      "forbidden_found": [],
+      "description": "존재하지 않는 기간"
+    }
+  ],
+  "summary": {
+    "parsing_time_seconds": 125,
+    "accuracy_score": "0/5",
+    "accuracy_percent": 0.0,
+    "hallucination_count": 0,
+    "overall_pass": false
+  }
+}
