@@ -1,0 +1,443 @@
+{
+  "timestamp": "2025-12-02T22:45:20.978442",
+  "dataset_ids": [
+    "1626c6c2cdf211f090e8a628c8eeafe7"
+  ],
+  "configs": [
+    {
+      "name": "BM25 Only",
+      "settings": {
+        "keywords_similarity_weight": 1.0,
+        "top_k": 30
+      },
+      "questions": [
+        {
+          "question": "한소희",
+          "type": "point",
+          "chunks_found": 30,
+          "relevance_rate": 1.0,
+          "keyword_coverage": 1.0,
+          "matched_keywords": [
+            "한소희"
+          ],
+          "response_time": 1.2824575901031494
+        },
+        {
+          "question": "제품E 판매",
+          "type": "point",
+          "chunks_found": 0,
+          "relevance_rate": 0,
+          "keyword_coverage": 0,
+          "matched_keywords": [],
+          "response_time": 1.4725618362426758
+        },
+        {
+          "question": "서울 지역",
+          "type": "point",
+          "chunks_found": 30,
+          "relevance_rate": 1.0,
+          "keyword_coverage": 1.0,
+          "matched_keywords": [
+            "서울"
+          ],
+          "response_time": 1.5437846183776855
+        },
+        {
+          "question": "영업부 담당자들",
+          "type": "aggregation",
+          "chunks_found": 30,
+          "relevance_rate": 1.0,
+          "keyword_coverage": 1.0,
+          "matched_keywords": [
+            "영업부"
+          ],
+          "response_time": 1.0697853565216064
+        },
+        {
+          "question": "매출액이 높은 거래",
+          "type": "aggregation",
+          "chunks_found": 0,
+          "relevance_rate": 0,
+          "keyword_coverage": 0,
+          "matched_keywords": [],
+          "response_time": 0.43422770500183105
+        },
+        {
+          "question": "실적이 좋은 사람",
+          "type": "semantic",
+          "chunks_found": 0,
+          "relevance_rate": 0,
+          "keyword_coverage": 0,
+          "matched_keywords": [],
+          "response_time": 0.4152376651763916
+        },
+        {
+          "question": "가장 많이 팔린 상품",
+          "type": "semantic",
+          "chunks_found": 0,
+          "relevance_rate": 0,
+          "keyword_coverage": 0,
+          "matched_keywords": [],
+          "response_time": 0.41148805618286133
+        }
+      ],
+      "metrics": {
+        "total_chunks": 90,
+        "avg_relevance": 1.0,
+        "avg_response_time": 0.9470775468008858,
+        "point_query_score": 0.6666666666666666,
+        "aggregation_score": 0.5,
+        "semantic_score": 0.0
+      }
+    },
+    {
+      "name": "Vector Only",
+      "settings": {
+        "keywords_similarity_weight": 0.0,
+        "top_k": 30
+      },
+      "questions": [
+        {
+          "question": "한소희",
+          "type": "point",
+          "chunks_found": 30,
+          "relevance_rate": 1.0,
+          "keyword_coverage": 1.0,
+          "matched_keywords": [
+            "한소희"
+          ],
+          "response_time": 0.9554300308227539
+        },
+        {
+          "question": "제품E 판매",
+          "type": "point",
+          "chunks_found": 0,
+          "relevance_rate": 0,
+          "keyword_coverage": 0,
+          "matched_keywords": [],
+          "response_time": 0.9595310688018799
+        },
+        {
+          "question": "서울 지역",
+          "type": "point",
+          "chunks_found": 30,
+          "relevance_rate": 1.0,
+          "keyword_coverage": 1.0,
+          "matched_keywords": [
+            "서울"
+          ],
+          "response_time": 0.8993868827819824
+        },
+        {
+          "question": "영업부 담당자들",
+          "type": "aggregation",
+          "chunks_found": 30,
+          "relevance_rate": 1.0,
+          "keyword_coverage": 1.0,
+          "matched_keywords": [
+            "영업부"
+          ],
+          "response_time": 0.643587589263916
+        },
+        {
+          "question": "매출액이 높은 거래",
+          "type": "aggregation",
+          "chunks_found": 0,
+          "relevance_rate": 0,
+          "keyword_coverage": 0,
+          "matched_keywords": [],
+          "response_time": 0.43958139419555664
+        },
+        {
+          "question": "실적이 좋은 사람",
+          "type": "semantic",
+          "chunks_found": 0,
+          "relevance_rate": 0,
+          "keyword_coverage": 0,
+          "matched_keywords": [],
+          "response_time": 0.4073624610900879
+        },
+        {
+          "question": "가장 많이 팔린 상품",
+          "type": "semantic",
+          "chunks_found": 0,
+          "relevance_rate": 0,
+          "keyword_coverage": 0,
+          "matched_keywords": [],
+          "response_time": 0.431887149810791
+        }
+      ],
+      "metrics": {
+        "total_chunks": 90,
+        "avg_relevance": 1.0,
+        "avg_response_time": 0.6766809395381382,
+        "point_query_score": 0.6666666666666666,
+        "aggregation_score": 0.5,
+        "semantic_score": 0.0
+      }
+    },
+    {
+      "name": "Hybrid Balanced",
+      "settings": {
+        "keywords_similarity_weight": 0.5,
+        "top_k": 30
+      },
+      "questions": [
+        {
+          "question": "한소희",
+          "type": "point",
+          "chunks_found": 30,
+          "relevance_rate": 1.0,
+          "keyword_coverage": 1.0,
+          "matched_keywords": [
+            "한소희"
+          ],
+          "response_time": 0.6765909194946289
+        },
+        {
+          "question": "제품E 판매",
+          "type": "point",
+          "chunks_found": 0,
+          "relevance_rate": 0,
+          "keyword_coverage": 0,
+          "matched_keywords": [],
+          "response_time": 0.6838524341583252
+        },
+        {
+          "question": "서울 지역",
+          "type": "point",
+          "chunks_found": 30,
+          "relevance_rate": 1.0,
+          "keyword_coverage": 1.0,
+          "matched_keywords": [
+            "서울"
+          ],
+          "response_time": 0.6411259174346924
+        },
+        {
+          "question": "영업부 담당자들",
+          "type": "aggregation",
+          "chunks_found": 30,
+          "relevance_rate": 1.0,
+          "keyword_coverage": 1.0,
+          "matched_keywords": [
+            "영업부"
+          ],
+          "response_time": 0.7102136611938477
+        },
+        {
+          "question": "매출액이 높은 거래",
+          "type": "aggregation",
+          "chunks_found": 0,
+          "relevance_rate": 0,
+          "keyword_coverage": 0,
+          "matched_keywords": [],
+          "response_time": 0.45128536224365234
+        },
+        {
+          "question": "실적이 좋은 사람",
+          "type": "semantic",
+          "chunks_found": 0,
+          "relevance_rate": 0,
+          "keyword_coverage": 0,
+          "matched_keywords": [],
+          "response_time": 0.4225912094116211
+        },
+        {
+          "question": "가장 많이 팔린 상품",
+          "type": "semantic",
+          "chunks_found": 0,
+          "relevance_rate": 0,
+          "keyword_coverage": 0,
+          "matched_keywords": [],
+          "response_time": 0.41588664054870605
+        }
+      ],
+      "metrics": {
+        "total_chunks": 90,
+        "avg_relevance": 1.0,
+        "avg_response_time": 0.5716494492122105,
+        "point_query_score": 0.6666666666666666,
+        "aggregation_score": 0.5,
+        "semantic_score": 0.0
+      }
+    },
+    {
+      "name": "Hybrid Keyword Heavy",
+      "settings": {
+        "keywords_similarity_weight": 0.7,
+        "top_k": 30
+      },
+      "questions": [
+        {
+          "question": "한소희",
+          "type": "point",
+          "chunks_found": 30,
+          "relevance_rate": 1.0,
+          "keyword_coverage": 1.0,
+          "matched_keywords": [
+            "한소희"
+          ],
+          "response_time": 0.6980431079864502
+        },
+        {
+          "question": "제품E 판매",
+          "type": "point",
+          "chunks_found": 0,
+          "relevance_rate": 0,
+          "keyword_coverage": 0,
+          "matched_keywords": [],
+          "response_time": 0.6656570434570312
+        },
+        {
+          "question": "서울 지역",
+          "type": "point",
+          "chunks_found": 30,
+          "relevance_rate": 1.0,
+          "keyword_coverage": 1.0,
+          "matched_keywords": [
+            "서울"
+          ],
+          "response_time": 0.6504714488983154
+        },
+        {
+          "question": "영업부 담당자들",
+          "type": "aggregation",
+          "chunks_found": 30,
+          "relevance_rate": 1.0,
+          "keyword_coverage": 1.0,
+          "matched_keywords": [
+            "영업부"
+          ],
+          "response_time": 0.6464443206787109
+        },
+        {
+          "question": "매출액이 높은 거래",
+          "type": "aggregation",
+          "chunks_found": 0,
+          "relevance_rate": 0,
+          "keyword_coverage": 0,
+          "matched_keywords": [],
+          "response_time": 0.42827701568603516
+        },
+        {
+          "question": "실적이 좋은 사람",
+          "type": "semantic",
+          "chunks_found": 0,
+          "relevance_rate": 0,
+          "keyword_coverage": 0,
+          "matched_keywords": [],
+          "response_time": 0.4424293041229248
+        },
+        {
+          "question": "가장 많이 팔린 상품",
+          "type": "semantic",
+          "chunks_found": 0,
+          "relevance_rate": 0,
+          "keyword_coverage": 0,
+          "matched_keywords": [],
+          "response_time": 0.5139291286468506
+        }
+      ],
+      "metrics": {
+        "total_chunks": 90,
+        "avg_relevance": 1.0,
+        "avg_response_time": 0.5778930527823312,
+        "point_query_score": 0.6666666666666666,
+        "aggregation_score": 0.5,
+        "semantic_score": 0.0
+      }
+    },
+    {
+      "name": "Hybrid High TopK",
+      "settings": {
+        "keywords_similarity_weight": 0.5,
+        "top_k": 100
+      },
+      "questions": [
+        {
+          "question": "한소희",
+          "type": "point",
+          "chunks_found": 30,
+          "relevance_rate": 1.0,
+          "keyword_coverage": 1.0,
+          "matched_keywords": [
+            "한소희"
+          ],
+          "response_time": 0.6749305725097656
+        },
+        {
+          "question": "제품E 판매",
+          "type": "point",
+          "chunks_found": 0,
+          "relevance_rate": 0,
+          "keyword_coverage": 0,
+          "matched_keywords": [],
+          "response_time": 0.6518683433532715
+        },
+        {
+          "question": "서울 지역",
+          "type": "point",
+          "chunks_found": 30,
+          "relevance_rate": 1.0,
+          "keyword_coverage": 1.0,
+          "matched_keywords": [
+            "서울"
+          ],
+          "response_time": 0.6932790279388428
+        },
+        {
+          "question": "영업부 담당자들",
+          "type": "aggregation",
+          "chunks_found": 30,
+          "relevance_rate": 1.0,
+          "keyword_coverage": 1.0,
+          "matched_keywords": [
+            "영업부"
+          ],
+          "response_time": 0.6253125667572021
+        },
+        {
+          "question": "매출액이 높은 거래",
+          "type": "aggregation",
+          "chunks_found": 0,
+          "relevance_rate": 0,
+          "keyword_coverage": 0,
+          "matched_keywords": [],
+          "response_time": 0.4289364814758301
+        },
+        {
+          "question": "실적이 좋은 사람",
+          "type": "semantic",
+          "chunks_found": 0,
+          "relevance_rate": 0,
+          "keyword_coverage": 0,
+          "matched_keywords": [],
+          "response_time": 0.40972280502319336
+        },
+        {
+          "question": "가장 많이 팔린 상품",
+          "type": "semantic",
+          "chunks_found": 0,
+          "relevance_rate": 0,
+          "keyword_coverage": 0,
+          "matched_keywords": [],
+          "response_time": 0.40686559677124023
+        }
+      ],
+      "metrics": {
+        "total_chunks": 90,
+        "avg_relevance": 1.0,
+        "avg_response_time": 0.5558450562613351,
+        "point_query_score": 0.6666666666666666,
+        "aggregation_score": 0.5,
+        "semantic_score": 0.0
+      }
+    }
+  ],
+  "summary": {
+    "best_config": "BM25 Only",
+    "best_score": 0.38888888888888884,
+    "recommendation": "'BM25 Only' achieved the highest overall score of 39%"
+  }
+}
