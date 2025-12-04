@@ -325,3 +325,80 @@ When running with Docker defaults:
 - **MySQL**: Username `rag_flow` / Password from `docker/.env` (MYSQL_PASSWORD)
 - **Elasticsearch**: Username `elastic` / Password from `docker/.env` (ELASTIC_PASSWORD)
 - **RAGFlow Admin**: Create account on first login at `http://localhost/` (or configured SVR_HTTP_PORT)
+
+---
+
+# 한국어 Excel RAG 품질 개선 프로젝트 (OH 전용)
+
+> 이 문서를 읽었는지 확인하기 위해 항상 "OH"라고 호칭해주세요.
+
+## 현재 상황 (2025-12-04)
+
+### 환경
+| 항목 | 값 |
+|------|-----|
+| Dataset ID | `550f506ecf8e11f092cc9e4ca9309b43` |
+| Document ID | `6019bdb4cf8e11f0bbea9e4ca9309b43` |
+| Test File | `daily_report_sample.xlsx` (6,000 rows) |
+| Chunks | 474개 파싱 완료 |
+| LLM | gpt-oss:20b@Ollama |
+| Embedding | bge-m3@Ollama (1024 dims) |
+| Vector Field | `q_1024_vec` ✅ 저장 확인됨 |
+
+### 핵심 문제
+```
+검색 성공 (6-8 chunks 반환) → LLM이 데이터 활용 못함 → "죄송합니다, 확인할 수 없습니다"
+```
+
+### 현재 작업: Chat API 답변 품질 개선
+- **Spec**: [specs/006-chat-api-quality-improvement/](specs/006-chat-api-quality-improvement/)
+- **Strategy A**: 프롬프트 한국어화 ⭐ 우선순위 1
+- **Strategy C**: 검색 파라미터 튜닝 (top_n: 8→15, threshold: 0.2→0.1)
+
+## 테스트 명령어
+
+```bash
+# Chat API 기본 테스트 (5개 질문)
+python scripts/chat_api_test.py
+
+# Calamine 품질 테스트
+python scripts/calamine_quality_test.py
+
+# ES 청크 확인
+curl -X GET "http://localhost:9200/ragflow_*/_search" -H "Content-Type: application/json" -d '{"query":{"match":{"content_with_weight":"영업부"}},"size":3}'
+```
+
+## 테스트 질문 (daily_report_sample.xlsx 기반)
+
+| # | 유형 | 질문 |
+|---|------|------|
+| 1 | Point | 한소희 담당자의 총 거래 건수는 몇 건인가요? |
+| 2 | Aggregation | 서울 지역에서 가장 많이 판매된 제품은 무엇인가요? |
+| 3 | List | 영업부에 속한 담당자들의 이름을 알려주세요 |
+| 4 | Top | 매출액이 가장 높은 거래의 상세 정보를 알려주세요 |
+| 5 | Hallucination | 김영수라는 담당자가 있나요? (없음 - 정답: "없다") |
+
+## 성공 기준
+
+| 메트릭 | Baseline | Target |
+|--------|----------|--------|
+| Point Query | 50% | >= 80% |
+| Aggregation | 0% | >= 60% |
+| List Query | 0% | >= 60% |
+| Hallucination | 1건 | 0건 |
+| Response Time | 18s | < 15s |
+
+## 알려진 이슈
+
+1. **SDK API 버그**: `/api/v1/chats` POST/PUT에서 요청 본문 파싱 실패
+   - 우회: WebUI에서 Chat 생성 후 completions 호출
+
+2. **Retrieval API 에러**: `AttributeError("'NoneType' object has no attribute 'get'")`
+   - Chat Completions API는 정상 작동
+
+## 개발 규칙
+
+- 추측하지 않고 실제 API 응답 확인
+- 모든 API 호출에 에러 핸들링 포함
+- 테스트 결과는 `specs/006-chat-api-quality-improvement/test-results.json`에 저장
+- 작은 변경 → 테스트 → 결과 확인 → 다음 단계 (점진적 접근)
