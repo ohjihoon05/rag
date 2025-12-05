@@ -1,0 +1,103 @@
+{
+  "timestamp": "2025-12-05T23:19:20.551849",
+  "chat_id": "72fb565cd1e311f0a7141a5756daedd2",
+  "session_id": "72fea258d1e311f092a21a5756daedd2",
+  "prompt_type": "korean_improved",
+  "parameters": {
+    "similarity_threshold": 0.1,
+    "keywords_similarity_weight": 0.8,
+    "top_n": 15
+  },
+  "results": [
+    {
+      "question": "한소희 담당자의 총 거래 건수는 몇 건인가요?",
+      "type": "point_query",
+      "response": {
+        "answer": "죄송합니다. “한소희 담당자”가 어떤 데이터셋이나 문서에 있는 인물인지, 그리고 “거래 건수”가 어떤 항목을 의미하는지 조금 더 구체적으로 알려주시면 정확히 계산해 드릴 수 있을 것 같습니다. 예를 들어: [ID:0]\n\n- 거래 내역이 담긴 엑셀 파일, CSV, 혹은 데이터베이스 테이블\n- 한소희 담당자가 담당한 거래가 특정 컬럼(예: 담당자명, 거래번호 등)으로 표시되어 있는지\n- 거래 건수가 중복 없이 한 번씩만 세어야 하는지, 혹은 특정 조건(날짜, 금액 등)을 만족하는 건만 세어야 하는지\n\n위와 같은 정보를 주시면 총 거래 건수를 계산해 드리겠습니다. 감사합니다!",
+        "references": 15,
+        "elapsed": 76.07825493812561,
+        "success": true
+      },
+      "evaluation": {
+        "keyword_coverage": 1.0,
+        "has_references": true,
+        "is_negative": true,
+        "quality_score": 1.0
+      },
+      "status": "PASS"
+    },
+    {
+      "question": "서울 지역에서 가장 많이 판매된 제품은 무엇인가요?",
+      "type": "aggregation",
+      "response": {
+        "answer": "제가 정확히 답변을 드리기 위해서는 서울 지역의 판매 데이터를 확인할 수 있어야 합니다. 현재 제공해 주신 정보가 없으니, 아래와 같은 데이터를 공유해 주시면 가장 많이 판매된 제품을 찾아드릴 수 있습니다.\n\n| 날짜 | 지역 | 제품명 | 판매량 | 판매금액 |\n|------|------|--------|--------|----------|\n [ID:0]\n혹은 이미 정리된 파일(예: CSV, Excel, 데이터베이스 등)을 보내 주시면, 그 안에서 서울 지역을 필터링하고 판매량이 가장 높은 제품을 계산해 드리겠습니다.\n\n데이터를 공유해 주시면 바로 분석해 드릴게요!",
+        "references": 15,
+        "elapsed": 124.9389579296112,
+        "success": true
+      },
+      "evaluation": {
+        "keyword_coverage": 1.0,
+        "has_references": true,
+        "is_negative": false,
+        "quality_score": 1.0
+      },
+      "status": "PASS"
+    },
+    {
+      "question": "영업부 담당자 목록을 보여주세요.",
+      "type": "list_query",
+      "response": {
+        "answer": "죄송하지만, 현재 제가 보유하고 있는 정보에는 특정 조직의 인사 목록이 포함되어 있지 않습니다. 영업부 담당자 목록을 제공해 드리려면 다음과 같은 정보가 필요합니다:\n\n1. **회사/기관명**   [ID:9] [ID:6] [ID:12]\n2. **목록에 포함할 인원(예: 전체, 특정 팀, 부서 내 직위별 등)**  \n3. **필요한 세부 정보** (이름, 직위, 연락처, 이메일 등)\n\n위 정보를 알려주시면, 해당 정보를 바탕으로 어떻게 목록을 정리할 수 있는지 예시를 드리거나 필요한 데이터를 요청하는 방법을 안내해 드릴 수 있습니다. 필요하신 부분을 알려주세요!",
+        "references": 15,
+        "elapsed": 224.56559491157532,
+        "success": true
+      },
+      "evaluation": {
+        "keyword_coverage": 1.0,
+        "has_references": true,
+        "is_negative": false,
+        "quality_score": 1.0
+      },
+      "status": "PASS"
+    },
+    {
+      "question": "매출액 정보를 알려주세요.",
+      "type": "top_query",
+      "response": {
+        "answer": "죄송하지만, 어떤 기업(또는 사업 분야)의 매출액 정보를 찾으시는지 알려주실 수 있을까요?   [ID:0]\n또한, 특정 기간(예: 연간, 분기별)이나 지역(국가, 지역) 등에 대한 요구 사항이 있으면 함께 알려주시면 정확한 정보를 제공해 드리겠습니다.",
+        "references": 15,
+        "elapsed": 347.5385527610779,
+        "success": true
+      },
+      "evaluation": {
+        "keyword_coverage": 1.0,
+        "has_references": true,
+        "is_negative": false,
+        "quality_score": 1.0
+      },
+      "status": "PASS"
+    },
+    {
+      "question": "김영수라는 담당자가 있나요?",
+      "type": "hallucination_check",
+      "response": {
+        "answer": "해당 데이터를 찾을 수 없습니다.",
+        "references": 0,
+        "elapsed": 56.214256286621094,
+        "success": true
+      },
+      "evaluation": {
+        "keyword_coverage": 0.0,
+        "has_references": false,
+        "is_negative": true,
+        "quality_score": 1.0
+      },
+      "status": "PASS"
+    }
+  ],
+  "summary": {
+    "total": 5,
+    "passed": 5,
+    "average_score": 1.0
+  }
+}
